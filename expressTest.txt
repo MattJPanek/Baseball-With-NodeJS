@@ -1,0 +1,34 @@
+**
+  * @Created by Matthew Panek
+  * @Date 1/11/2020
+  * This file will run the formulas on express
+  */
+  
+ var formulas = require('../Baseball-With-NodeJS/Formula/PythagoreanExpectations.js');
+ 
+ const express = require('express');
+ const router = express.Router();
+ const app = express();
+ 
+ 
+ var winningPercentage = formulas.data.PythagoreanExpectationsCalcWP(897,697);
+ 
+ var wins = formulas.data.PythagoreanExpectationsWin(897,697);
+ 
+ var loss = formulas.data.PythagoreanExpectationsLoss(897,697);
+ 
+ 
+ 
+ router.get('/test', (req, res) => {
+	
+	res.json({"winningPercentage": winningPercentage, "wins": wins, "loss": loss })
+ }); 
+ 
+ 
+ 
+ )
+ app.use('/',router);
+ app.listen(3000);
+ 
+ 
+ 
